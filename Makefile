@@ -1,3 +1,5 @@
+CFLAGS = -g -Wall
+
 DEFAULT: mylib.o main.idr
 	idris main.idr -o jacekFFI
 
