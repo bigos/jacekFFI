@@ -1,0 +1,10 @@
+* Using gdb
+
+make
+start gdb in Emacs
+
+file mylib.o
+breakpoint mymult
+file jacekffi
+
+run the Gud command Run
