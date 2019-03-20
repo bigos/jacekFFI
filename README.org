@@ -3,9 +3,11 @@
 make
 start gdb in Emacs
 
+#+BEGIN_EXAMPLE
 file mylib.o
-breakpoint mymult
+break myMult
 file jacekffi
+#+END_EXAMPLE
 
 run the Gud command Run
 
