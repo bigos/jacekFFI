@@ -18,3 +18,9 @@ http://docs.idris-lang.org/en/latest/reference/packages.html#package-description
 ** Makefile
 
 http://docs.idris-lang.org/en/latest/reference/packages.html#binding-to-c
+
+*** windows compilation make command
+
+#+BEGIN_EXAMPLE
+  /msys64/usr/bin/make.exe
+#+END_EXAMPLE
