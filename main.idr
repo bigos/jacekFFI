@@ -4,7 +4,9 @@ module Main
 %link C "mylib.o"
 
 myMult     : Int -> Int -> IO Int
-myMult x y = foreign FFI_C "myMult" (Int -> Int -> IO Int) x y
+myMult x y = foreign FFI_C "myMult"
+                     (Int -> Int -> IO Int)
+                     x y
 
 main : IO ()
 main = do
