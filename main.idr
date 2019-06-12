@@ -3,12 +3,12 @@ module Main
 %include C "mylib.h"
 %link C "mylib.o"
 
-myCallback : ()
-myCallback = ()
+myCallback : () -> Int
+myCallback _ = 5
 
 myMult     : Int -> Int -> IO Int
 myMult x y = foreign FFI_C "myMult"
-                     (Int -> Int -> CFnPtr () -> IO Int)
+                     (Int -> Int -> CFnPtr (() -> Int)  -> IO Int)
                      x y (MkCFnPtr myCallback)
 
 main : IO ()
