@@ -1,4 +1,7 @@
 #include <stdio.h>
-void myMult(int x, int y) {
-    printf("%d\n", x * y);
+
+int myMult(int x, int y) {
+    int res = x * y;
+    printf("%d\n", res);
+    return (res * 2);
 }
