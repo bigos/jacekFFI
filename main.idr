@@ -11,6 +11,10 @@ myMult x y = foreign FFI_C "myMult"
            (Int -> Int -> CFnPtr (Int -> Int) -> IO Int)
            x y (MkCFnPtr myCallback)
 
+-- looks like Idris does not have support for proper interaction with gtk
+-- libraries due to sensitivity of the compilation arguments order and
+-- my bad make file
+
 zzz : IO Int
 zzz = foreign FFI_C "zzz"
          (IO Int)
