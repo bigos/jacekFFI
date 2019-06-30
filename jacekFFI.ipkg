@@ -1,4 +1,7 @@
 package jacekFFI
 
+executable = jacekFfi
+main = Main
+
 makefile = Makefile
 objs = mylib.o, mylib.h
