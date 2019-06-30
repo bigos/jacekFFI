@@ -1,0 +1,4 @@
+package jacekFFI
+
+makefile = Makefile
+objs = mylib.o, mylib.h
