@@ -24,8 +24,9 @@ int zzz ()
 {
     GtkApplication *app;
     int status = 0;
-    int argc = 1;
-    char **argv = "a";
+    int argc = 0;
+
+    char **argv = (char *[]){"hello", "world"};
 
     app = gtk_application_new ("org.gtk.example", G_APPLICATION_FLAGS_NONE);
     //g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
