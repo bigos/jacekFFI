@@ -1,4 +1,4 @@
-CFLAGS = -g
+CFLAGS = -g -Wall
 GTKFLAGS1 = `pkg-config --cflags gtk+-3.0`
 GTKFLAGS2 = `pkg-config --libs gtk+-3.0`
 

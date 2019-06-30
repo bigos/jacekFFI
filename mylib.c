@@ -33,5 +33,5 @@ int zzz ()
     status = g_application_run (G_APPLICATION (app), argc, argv);
     g_object_unref (app);
 
-    return 0;
+    return status;
 }
