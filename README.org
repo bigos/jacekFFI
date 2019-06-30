@@ -27,3 +27,13 @@ http://docs.idris-lang.org/en/latest/reference/packages.html#binding-to-c
 
 * C acllbacks
 http://docs.idris-lang.org/en/latest/reference/ffi.html#c-callbacks
+
+
+
+* new compilation
+the problem lies in incorrect compiling and linking
+#+BEGIN_EXAMPLE
+make clean
+make hmm
+idris --build ./jacekFFI.ipkg
+#+END_EXAMPLE
