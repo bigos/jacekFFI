@@ -8,4 +8,5 @@ mylib.o: mylib.c mylib.h
 clean:
 	rm -f jacekFFI mylib.o main.ibc a.out *.ibc
 
+
 hmm: mylib.o
