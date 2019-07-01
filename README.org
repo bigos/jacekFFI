@@ -37,3 +37,10 @@ make clean
 make hmm
 idris --build ./jacekFFI.ipkg
 #+END_EXAMPLE
+
+* Interesting projects
+https://github.com/puffnfresh/iridium
+
+** more
+
+https://github.com/joaomilho/awesome-idris#projects
