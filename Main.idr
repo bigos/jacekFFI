@@ -13,10 +13,6 @@ myMult x y = foreign FFI_C "myMult"
            (Int -> Int -> CFnPtr (Int -> Int) -> IO Int)
            x y (MkCFnPtr myCallback)
 
--- looks like Idris does not have support for proper interaction with gtk
--- libraries due to sensitivity of the compilation arguments order and
--- my bad make file
-
 zzz : IO Int
 zzz = foreign FFI_C "zzz"
          (IO Int)
@@ -26,5 +22,5 @@ main : IO ()
 main = do
   r <- myMult 5 4
   putStrLn ("doubled " ++ (show r))
-  zzz
-  putStrLn "koniec"
+  s <- zzz
+  putStrLn ("koniec with status " ++ (show s))
