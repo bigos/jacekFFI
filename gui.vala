@@ -7,6 +7,14 @@ public class Gui : Gtk.Application {
 			flags : ApplicationFlags.FLAGS_NONE
 			);
 	}
+
+	// public static int myMult (int x, int y, int (* cba)() ) {
+	// 	var int res = x * x;
+	// 	stdout.printf("%d\n", res);
+
+	// 	stdout.printf("callbacked %d\n", (cba)(3));
+	// 	return (res * 2);
+	// }
 	
 	protected override void activate () {
 		var main_window = new Gtk.ApplicationWindow (this);		
