@@ -12,3 +12,6 @@ clean:
 
 
 hmm: mylib.o
+
+val:
+	vala --pkg gtk+-3.0 ./gui.vala
