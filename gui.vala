@@ -1,5 +1,7 @@
 // gui vala
 
+extern int myCallback ();
+
 public class Gui : Gtk.Application {
 	public Gui () {
 		Object (
@@ -7,14 +9,6 @@ public class Gui : Gtk.Application {
 			flags : ApplicationFlags.FLAGS_NONE
 			);
 	}
-
-	// public static int myMult (int x, int y, int (* cba)() ) {
-	// 	var int res = x * x;
-	// 	stdout.printf("%d\n", res);
-
-	// 	stdout.printf("callbacked %d\n", (cba)(3));
-	// 	return (res * 2);
-	// }
 	
 	protected override void activate () {
 		var main_window = new Gtk.ApplicationWindow (this);		
@@ -22,7 +16,8 @@ public class Gui : Gtk.Application {
 		main_window.default_width = 300;
 		main_window.title = "Hello World";
 
-		Gtk.Label label = new Gtk.Label ("Hello GTK");
+		string da_result = "Hello Gtk %d".printf(1234567);				
+		Gtk.Label label = new Gtk.Label (da_result);
 		main_window.add (label);
 		main_window.show_all ();
 	}

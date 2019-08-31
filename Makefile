@@ -17,7 +17,7 @@ valarun:
 	vala --pkg gtk+-3.0 ./gui.vala
 
 valac:
-	valac --pkg gtk+-3.0 --header=gui.h --save-temps gui.vala
+	valac --pkg gtk+-3.0 --pkg glib-2.0 --header=gui.h --save-temps gui.vala
 
 gui.o: gui.c gui.h
 	gcc $(CFLAGS) $(GTKFLAGS1) gui.c -c -o gui.o
