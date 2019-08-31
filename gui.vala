@@ -2,6 +2,11 @@
 
 extern int myCallback ();
 
+public int zzz () {
+	var app = new Gui ();
+	return app.run ();		
+}
+
 public class Gui : Gtk.Application {
 	public Gui () {
 		Object (
@@ -28,3 +33,4 @@ public class Gui : Gtk.Application {
 	}
 	
 }
+

@@ -21,3 +21,4 @@ valac:
 
 gui.o: gui.c gui.h
 	gcc $(CFLAGS) $(GTKFLAGS1) gui.c -c -o gui.o
+error: glib-2.0 not found
