@@ -8,7 +8,7 @@ mylib.o: mylib.c mylib.h
 	gcc $(CFLAGS) $(GTKFLAGS1) mylib.c -c -o mylib.o
 
 clean:
-	rm -f jacekFFI mylib.o main.ibc a.out *.ibc gui.c gui.h gio.o gui
+	rm -f jacekFFI mylib.o main.ibc a.out *.ibc gui.c gui.h gui.o gui
 
 
 hmm: mylib.o
