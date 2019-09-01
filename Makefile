@@ -10,14 +10,19 @@ mylib.o: mylib.c mylib.h
 clean:
 	rm -f jacekFFI mylib.o main.ibc a.out *.ibc gui.c gui.h gui.o gui
 
-
 hmm: mylib.o
 
 valarun:
 	vala --pkg gtk+-3.0 ./gui.vala
 
-valac:
+# compile vala file renaming main to avoid conflict with Idris
+valac: gui.vala
 	valac --main=vala_main --pkg gtk+-3.0 --pkg glib-2.0 --header=gui.h --save-temps gui.vala
+	sed -i 's/main (/renamed_main (/g' gui.c
 
-gui.o: gui.c gui.h
+gui.o: gui.c gui.h valac
 	gcc $(CFLAGS) $(GTKFLAGS1) gui.c -c -o gui.o
+
+# create Idris executable
+app: gui.o
+	idris --build ./jacekFFI.ipkg

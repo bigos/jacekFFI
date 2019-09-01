@@ -6,4 +6,4 @@ executable = jacekFFI
 main = Main
 
 makefile = Makefile
-objs = mylib.o, mylib.h
+objs = valac, gui.o, gui.h
