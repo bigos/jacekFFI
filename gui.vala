@@ -12,7 +12,7 @@ static int myMult (int x, int y, MyCallback fn ) {
 	var res = x * x;
 	stdout.printf("%d\n", res);
 
-	stdout.printf("callbacked ZAZ %d\n", fn (3) );
+	stdout.printf("Callbacked %d\n", fn (3) );
 	return (res * 2);
 }
 
