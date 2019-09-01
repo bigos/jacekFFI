@@ -11,11 +11,11 @@ public class Gui : Gtk.Application {
 	[CCode ( cname = "myCallback", has_target = false)]
 	public delegate int MyCallback (int a);
 	
-	public static int myMult (int x, int y, MyCallback f ) {
+	public static int myMult (int x, int y, MyCallback fn ) {
 		var res = x * x;
 		stdout.printf("%d\n", res);
 
-		stdout.printf("callbacked %d\n", f (3) );
+		stdout.printf("callbacked %d\n", fn (3) );
 		return (res * 2);
 	}
 	
