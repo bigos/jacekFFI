@@ -1,5 +1,5 @@
 CFLAGS = -g -Wall
-GTKFLAGS1 = `pkg-config --cflags gtk+-3.0`
+GTKFLAGS1 = `pkg-config --cflags gtk+-3.0 glib-2.0`
 
 # output of the following needed in %flag C in Main.idr
 # GTKFLAGS2 = `pkg-config --libs gtk+-3.0`
@@ -17,7 +17,7 @@ valarun:
 	vala --pkg gtk+-3.0 ./gui.vala
 
 valac:
-	valac --pkg gtk+-3.0 --pkg glib-2.0 --header=gui.h --save-temps gui.vala
+	valac --main=vala_main --pkg gtk+-3.0 --pkg glib-2.0 --header=gui.h --save-temps gui.vala
 
 gui.o: gui.c gui.h
 	gcc $(CFLAGS) $(GTKFLAGS1) gui.c -c -o gui.o
