@@ -4,16 +4,8 @@ GTKFLAGS1 = `pkg-config --cflags gtk+-3.0 glib-2.0`
 # output of the following needed in %flag C in Main.idr
 # GTKFLAGS2 = `pkg-config --libs gtk+-3.0`
 
-mylib.o: mylib.c mylib.h
-	gcc $(CFLAGS) $(GTKFLAGS1) mylib.c -c -o mylib.o
-
 clean:
 	rm -f jacekFFI mylib.o main.ibc a.out *.ibc gui.c gui.h gui.o gui
-
-hmm: mylib.o
-
-valarun:
-	vala --pkg gtk+-3.0 ./gui.vala
 
 # compile vala file renaming main to avoid conflict with Idris
 valac: gui.vala
@@ -28,3 +20,6 @@ gui.o: gui.c gui.h valac
 # create Idris executable
 app: gui.o
 	idris --build ./jacekFFI.ipkg
+
+run: app
+	./jacekFFI
