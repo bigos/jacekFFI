@@ -7,7 +7,7 @@ GTKFLAGS1 = `pkg-config --cflags gtk+-3.0 glib-2.0`
 # compile vala file renaming main to avoid conflict with Idris
 valac: gui.vala
 	valac --main=vala_main --pkg gtk+-3.0 --pkg glib-2.0 --header=gui.h --save-temps gui.vala
-	sed -i 's/main (/renamed_main (/g' gui.c
+	sed -i 's/^main (/renamed_main (/g' gui.c
 
 gui.o: valac
 	gcc $(CFLAGS) $(GTKFLAGS1) gui.c -c -o gui.o
