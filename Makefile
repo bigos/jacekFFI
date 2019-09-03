@@ -21,4 +21,4 @@ run: app
 
 clean:
 	echo "cleaning stuff"
-	rm -f jacekFFI main.ibc a.out *.ibc gui.c gui.h gui.o gui
+	rm -f jacekFFI main.ibc a.out *.ibc gui.c gui.h gui.o gui '*idris-notes*'
