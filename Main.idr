@@ -9,6 +9,9 @@ import Data.Vect
 %include C "gui.h"
 %link C "gui.o"
 
+idrisGreeting : String
+idrisGreeting = "Greetings from Idris"
+
 myCallback : Int -> Int
 myCallback a = a * 5
 
@@ -25,18 +28,18 @@ append : Vect n a -> Vect m a -> Vect (n + m) a
 append [] ys = ys
 append (x :: xs) ys = x :: append xs ys
 
-gui_args : Vect 1 String
-gui_args = ["any"]
+gui_args : String
+gui_args = "any"
 
 run_gui : IO Int
 run_gui = foreign FFI_C "vala_main" (String -> Int -> IO Int)
-        "" 0                    --do not change it or it will crash
+        "" 0                    -- do not change it or it will crash
 
 main : IO ()
 main = do
   r <- myMult 5 4
   putStrLn ("doubled " ++ (show r))
   s <- zzz
-  putStrLn ("koniec with status " ++ (show s))
+  putStrLn ("Now you should see GUI and some result" ++ (show s))
   result <- run_gui
   putStrLn ("final result " ++ (show result))

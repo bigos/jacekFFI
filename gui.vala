@@ -5,6 +5,12 @@ int zzz () {
 	return status;
 }
 
+
+
+// can all idris code that does not exist yet, because vala is compile first
+// [CCode ( cname = "idrisGreeting", has_target = false)]
+// static extern string idrisGreetingcb ();
+
 [CCode ( cname = "myCallback", has_target = false)]
 delegate int MyCallback (int a);
 
@@ -28,15 +34,17 @@ public class Gui : Gtk.Application {
 			application_id : "org.jacek.vala1",
 			flags : ApplicationFlags.FLAGS_NONE
 			);
-	}
+	}	
 
 	protected override void activate () {
 		var main_window = new Gtk.ApplicationWindow (this);
 		main_window.default_height = 300;
 		main_window.default_width = 300;
 		main_window.title = "Hello World";
-
-		Gtk.Label label = new Gtk.Label ("Hello GTK");
+		
+		string idris_label = "We have a chicken and egg problem";
+		
+		Gtk.Label label = new Gtk.Label (idris_label);
 		main_window.add (label);
 		main_window.show_all ();
 	}
