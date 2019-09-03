@@ -16,10 +16,10 @@ static int myMult (int x, int y, MyCallback fn ) {
 	return (res * 2);
 }
 
-public static int vala_main () {
+public static int vala_main (string[] args) {
 	var app = new Gui ();
 	string[] args2 = {};
-	return app.run (args2);
+	return app.run (args);
 }
 
 public class Gui : Gtk.Application {
