@@ -11,8 +11,8 @@ public delegate string ComResult (string a);
 public static ComResult afni = null;
 
 public static void set_afni (ComResult fn) {
-	stdout.printf("setting pointer \n");
 	global::afni = fn;
+	stdout.printf("setting pointer \n");
 }
 
 [CCode ( cname = "myCallback", has_target = false)]
@@ -45,7 +45,7 @@ public class Gui : Gtk.Application {
 		main_window.default_width = 300;
 		main_window.title = "Hello World";
 		
-		string idris_label = afni("ala ma kota");
+		string idris_label = global::afni("ala ma kota");
 		
 		Gtk.Label label = new Gtk.Label (idris_label);
 		main_window.add (label);
