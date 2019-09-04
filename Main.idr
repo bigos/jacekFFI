@@ -38,6 +38,9 @@ run_gui = foreign FFI_C "vala_main" (String -> Int -> IO Int)
 comFn : String -> String
 comFn a = "result: " ++ a
 
+-- this shows that we would need c code generation at runtime to make it work
+-- https://github.com/idris-lang/Idris-dev/issues/4391
+
 set_afni : IO ()
 set_afni = foreign FFI_C "set_afni"
          (CFnPtr (String -> String) -> IO ())
