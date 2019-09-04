@@ -35,11 +35,21 @@ run_gui : IO Int
 run_gui = foreign FFI_C "vala_main" (String -> Int -> IO Int)
         "" 0                    -- do not change it or it will crash
 
+comFn : String -> String
+comFn a = "result: " ++ a
+
+set_afni : IO ()
+set_afni = foreign FFI_C "set_afni"
+         (CFnPtr (String -> String) -> IO ())
+         (MkCFnPtr comFn)
+
+
 main : IO ()
 main = do
   r <- myMult 5 4
   putStrLn ("doubled " ++ (show r))
   s <- zzz
   putStrLn ("Now you should see GUI and some result" ++ (show s))
+  set_afni
   result <- run_gui
   putStrLn ("final result " ++ (show result))

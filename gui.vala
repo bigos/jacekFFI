@@ -5,11 +5,15 @@ int zzz () {
 	return status;
 }
 
+[CCode (cname = "comResult", has_target = false)]
+public delegate string ComResult (string a);
+ 
+public static ComResult afni = null;
 
-
-// can all idris code that does not exist yet, because vala is compile first
-// [CCode ( cname = "idrisGreeting", has_target = false)]
-// static extern string idrisGreetingcb ();
+public static void set_afni (ComResult fn) {
+	stdout.printf("setting pointer \n");
+	global::afni = fn;
+}
 
 [CCode ( cname = "myCallback", has_target = false)]
 delegate int MyCallback (int a);
@@ -23,8 +27,7 @@ static int myMult (int x, int y, MyCallback fn ) {
 }
 
 public static int vala_main (string[] args) {
-	var app = new Gui ();
-	string[] args2 = {};
+	var app = new Gui ();	
 	return app.run (args);
 }
 
@@ -42,7 +45,7 @@ public class Gui : Gtk.Application {
 		main_window.default_width = 300;
 		main_window.title = "Hello World";
 		
-		string idris_label = "We have a chicken and egg problem";
+		string idris_label = afni("ala ma kota");
 		
 		Gtk.Label label = new Gtk.Label (idris_label);
 		main_window.add (label);
