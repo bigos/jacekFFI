@@ -9,9 +9,6 @@ import Data.Vect
 %include C "gui.h"
 %link C "gui.o"
 
-idrisGreeting : String
-idrisGreeting = "Greetings from Idris"
-
 myCallback : Int -> Int
 myCallback a = a * 5
 
@@ -23,13 +20,6 @@ myMult x y = foreign FFI_C "myMult"
 zzz : IO Int
 zzz = foreign FFI_C "zzz"
     (IO Int)
-
-append : Vect n a -> Vect m a -> Vect (n + m) a
-append [] ys = ys
-append (x :: xs) ys = x :: append xs ys
-
-gui_args : String
-gui_args = "any"
 
 run_gui : IO Int
 run_gui = foreign FFI_C "vala_main" (String -> Int -> IO Int)
