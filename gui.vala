@@ -1,10 +1,5 @@
 // gui vala
 
-// here passing strings works
-public static void print_experiment (string a) {
-	stdout.printf("printFing %s\n", a);
-}
-
 int zzz () {
 	int status = 7;
 	return status;

@@ -43,17 +43,12 @@ set_afni = foreign FFI_C "set_afni"
          (CFnPtr (Int -> String) -> IO ())
          (MkCFnPtr comFn)
 
--- here passing strings from Idris to Vala/C works
-print_experiment : IO ()
-print_experiment = foreign FFI_C "print_experiment" (String -> IO ()) "lorem ipsum"
-
 main : IO ()
 main = do
-  print_experiment
   r <- myMult 5 4
   putStrLn ("doubled " ++ (show r))
   s <- zzz
-  putStrLn ("Now you should see GUI and some result" ++ (show s))
+  putStrLn ("Now you should see GUI and some result " ++ (show s))
   set_afni
   result <- run_gui
   putStrLn ("final result " ++ (show result))
