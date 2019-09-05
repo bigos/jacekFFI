@@ -1,5 +1,10 @@
 // gui vala
 
+// here passing strings works
+public static void print_experiment (string a) {
+	stdout.printf("printFing %s\n", a);
+}
+
 int zzz () {
 	int status = 7;
 	return status;
@@ -45,7 +50,7 @@ public class Gui : Gtk.Application {
 		main_window.default_width = 300;
 		main_window.title = "Hello World";				
 
-		int res = global::afni(0);
+		int res = global::afni(2+5);
 		string da_label = @"blah $res";
 		Gtk.Label label = new Gtk.Label (da_label);
 		main_window.add (label);
