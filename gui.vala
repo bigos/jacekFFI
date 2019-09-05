@@ -11,7 +11,7 @@ int zzz () {
 }
 
 [CCode (cname = "comFn", has_target = false)]
-public delegate int ComResult (int a);
+public delegate unowned string ComResult (int a);
  
 public static ComResult afni = null;
 
@@ -50,7 +50,7 @@ public class Gui : Gtk.Application {
 		main_window.default_width = 300;
 		main_window.title = "Hello World";				
 
-		int res = global::afni(2+5);
+		string res = global::afni(2+5);
 		string da_label = @"blah $res";
 		Gtk.Label label = new Gtk.Label (da_label);
 		main_window.add (label);

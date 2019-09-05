@@ -35,12 +35,12 @@ run_gui : IO Int
 run_gui = foreign FFI_C "vala_main" (String -> Int -> IO Int)
         "" 0                    -- do not change it or it will crash
 
-comFn : Int -> Int
-comFn a = a + 123
+comFn : Int -> String
+comFn a = "a string -> " ++ (show a)
 
 set_afni : IO ()
 set_afni = foreign FFI_C "set_afni"
-         (CFnPtr (Int -> Int) -> IO ())
+         (CFnPtr (Int -> String) -> IO ())
          (MkCFnPtr comFn)
 
 -- here passing strings from Idris to Vala/C works
