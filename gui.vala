@@ -5,8 +5,8 @@ int zzz () {
 	return status;
 }
 
-[CCode (cname = "comResult", has_target = false)]
-public delegate string ComResult (string a);
+[CCode (cname = "comFn", has_target = false)]
+public delegate int ComResult (int a);
  
 public static ComResult afni = null;
 
@@ -43,11 +43,11 @@ public class Gui : Gtk.Application {
 		var main_window = new Gtk.ApplicationWindow (this);
 		main_window.default_height = 300;
 		main_window.default_width = 300;
-		main_window.title = "Hello World";
-		
-		string idris_label = global::afni("ala ma kota");
-		
-		Gtk.Label label = new Gtk.Label (idris_label);
+		main_window.title = "Hello World";				
+
+		int res = global::afni(0);
+		string da_label = @"blah $res";
+		Gtk.Label label = new Gtk.Label (da_label);
 		main_window.add (label);
 		main_window.show_all ();
 	}
